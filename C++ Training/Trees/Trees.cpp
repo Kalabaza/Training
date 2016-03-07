@@ -58,42 +58,6 @@ public:
     T dequeue();
 };
 
-template<typename T>
-Queue<T>::~Queue()
-{
-    Node<T> *tmp;
-    while (!isEmpty())
-    {
-        tmp = front;
-        front = tmp->getNext();
-        delete tmp;
-    }
-}
-
-template<typename T>
-void Queue<T>::enqueue(T data)
-{
-    Node<T> *tmp = new Node<T>(data);
-    if (front == nullptr)
-        front = tmp;
-    else
-        rear->setNext(tmp);
-    rear = tmp;
-}
-
-template<typename T>
-T Queue<T>::dequeue()
-{
-    if (isEmpty())
-        exit(1);
-    T data;
-    Node<T> *tmp(front);
-    data = tmp->getData();
-    front = tmp->getNext();
-    delete tmp;
-    return data;
-}
-
 // Destructor of the Stack class
 template<typename T>
 Stack<T>::~Stack()
@@ -127,6 +91,42 @@ T Stack<T>::pop()
     Node<T> *tmp(top);
     top = tmp->getNext();
     data = tmp->getData();
+    delete tmp;
+    return data;
+}
+
+template<typename T>
+Queue<T>::~Queue()
+{
+    Node<T> *tmp;
+    while (!isEmpty())
+    {
+        tmp = front;
+        front = tmp->getNext();
+        delete tmp;
+    }
+}
+
+template<typename T>
+void Queue<T>::enqueue(T data)
+{
+    Node<T> *tmp = new Node<T>(data);
+    if (front == nullptr)
+        front = tmp;
+    else
+        rear->setNext(tmp);
+    rear = tmp;
+}
+
+template<typename T>
+T Queue<T>::dequeue()
+{
+    if (isEmpty())
+        exit(1);
+    T data;
+    Node<T> *tmp(front);
+    data = tmp->getData();
+    front = tmp->getNext();
     delete tmp;
     return data;
 }

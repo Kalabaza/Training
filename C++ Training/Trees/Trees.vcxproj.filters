@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="8Queens.cpp">
+    <ClCompile Include="..\Microsoft\Trees.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
