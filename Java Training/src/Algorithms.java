@@ -1,5 +1,6 @@
 
 public class Algorithms {
+	// Linear search algorithm
 	static int IndexOf(int[] theArray, int targetValue) {
 		for (int index = 0; index < theArray.length; ++index)
 		{
@@ -10,7 +11,7 @@ public class Algorithms {
 	}
 	
 	public static void main(String[] args) {
-		int[] theArray = {4, 2, 6, 1, 7, 3, 8, 5};
+		int[] theArray = new int[] {4, 2, 6, 1, 7, 3, 8, 5};
 		int value1 = 4;
 		int result = IndexOf(theArray, value1);
 		System.out.println("Looking for the value " + value1 + " in the array.");
